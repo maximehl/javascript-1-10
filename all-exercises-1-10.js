@@ -45,7 +45,7 @@ function string_times(string, n){
         var returnString = string;
         var i = 1;
         while(i < n){
-            var returnString = returnString + string;
+            returnString = returnString + string;
             i++;
         }
         return returnString;
@@ -71,7 +71,7 @@ function front_times(string, n){
             var returnString = frontString;
             var i = 1;
             while(i < n){
-                var returnString = returnString + frontString;
+                returnString = returnString + frontString;
                 i++;
             }
             return returnString;
