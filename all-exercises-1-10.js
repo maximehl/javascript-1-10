@@ -62,10 +62,11 @@ function string_times(string, n){
 
 function front_times(string, n){
     if(string.length>0){
+        var frontString;
         if(string.length<3){
-            var frontString = string;
+            frontString = string;
         }else{
-            var frontString = string.substring(0,3);
+            frontString = string.substring(0,3);
         }
         if (n>0){
             var returnString = frontString;
