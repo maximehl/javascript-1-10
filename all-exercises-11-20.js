@@ -133,16 +133,95 @@ function getSandwich(sandwich){
 
 /* Name: Maxime Hendrikse Liu
  * Javascript Problem #18: canBalance
- * Date: 19 September 2017
+ * Date: 21 September 2017
  */
 
 function canBalance(array){
     var leftEnd = 0;
-    var rightEnd = array.length;
+    var rightEnd = array.length - 1;
     if(array.length>1){
-        var leftSum = array[0];
+        var leftSum = array[leftEnd];
         var rightSum = array[rightEnd];
+        while(leftEnd+1!=rightEnd){
+            if(leftSum<rightSum){
+                leftEnd++;
+                leftSum+=array[leftEnd];
+            }else if(leftSum>rightSum){
+                rightEnd--;
+                rightSum+=array[rightEnd];
+            }else if(leftEnd+2<=rightEnd-1){
+                leftEnd++;
+                leftSum+=array[leftEnd];
+                rightEnd--;
+                rightSum+=array[rightEnd];
+            }else{
+                return false;
+            }
+        }
+        if(leftSum==rightSum){
+            return true;
+        }else{
+            return false;
+        }
+    }else{
+        return false;
+    }
+}
 
+
+/* Name: Maxime Hendrikse Liu
+ * Javascript Problem #19: countClumps
+ * Date: 21 September 2017
+ */
+
+function countClumps(array){
+    var clumps = 0;
+    var arrayPos = 0;
+    var clumpNum = array[arrayPos];
+    arrayPos++;
+    while(arrayPos<array.length){
+        if(array[arrayPos]==clumpNum){
+            while(array[arrayPos]==clumpNum){
+                arrayPos++;
+            }
+            clumps++;
+        }else{
+            clumpNum = array[arrayPos];
+            arrayPos++;
+        }
+    }
+    return clumps;
+}
+
+
+/* Name: Maxime Hendrikse Liu
+ * Javascript Problem #20: evenlySpaced
+ * Date: 21 September 2017
+ */
+
+function evenlySpaced(a,b,c) {
+    var lowNum;
+    var midNum;
+    var highNum = a;
+    if (b > highNum) {
+        midNum = highNum;
+        highNum = b;
+    } else {
+        midNum = b;
+    }
+    if (c < midNum) {
+        lowNum = c;
+    } else {
+        lowNum = midNum;
+        if (c > highNum) {
+            midNum = highNum;
+            highNum = c;
+        } else {
+            midNum = c;
+        }
+    }
+    if (highNum-midNum == midNum-lowNum) {
+        return true;
     }else{
         return false;
     }
