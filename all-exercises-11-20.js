@@ -108,8 +108,10 @@ function starOut(string){
  * Date: 19 September 2017
  */
 
+//I wrote this before I knew about the indexOf and lastIndexOf functions, which would have made this much easier.
+
 function getSandwich(sandwich){
-    var firstBread = 0;
+    var firstBread = 0; //indexOf("bread")+5
     while((sandwich.substring(firstBread,firstBread+5)!="bread")&&(firstBread<sandwich.length)){
         firstBread++;
     }
